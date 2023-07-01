@@ -12,7 +12,7 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
-        return deleteEvenOdd(ints, 1, 2);
+        return delete(ints, 0, 2);
     }
 
     /**
@@ -21,7 +21,7 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with odds removed
      */
     public Integer[] deleteOdds(Integer[] ints) {
-        return deleteEvenOdd(ints, 0, 2);
+        return delete(ints, 1, 2);
     }
 
     /**
@@ -30,7 +30,7 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by 3 removed
      */
     public Integer[] deleteMultiplesOf3(Integer[] ints) {
-        return null;
+        return delete(ints, 0, 3);
     }
 
     /**
@@ -40,13 +40,13 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with numbers indivisible by `multiple` removed
      */
     public Integer[] deleteMultiplesOfN(Integer[] ints, int multiple) {
-        return null;
+        return delete(ints, 0, multiple);
     }
-    public Integer[] deleteEvenOdd(Integer[] ints, int num, int mult){  //DRY
+    public Integer[] delete(Integer[] ints, int num, int mult){  //DRY
         int count = 0;
         ArrayList<Integer> arrayList = new ArrayList<>();
         for (int i = 0; i < ints.length; i++) {
-            if(ints[i].intValue() % mult == num){
+            if(ints[i].intValue() % mult != num){
                 arrayList.add(ints[i]);
                 count += 1;
             }
