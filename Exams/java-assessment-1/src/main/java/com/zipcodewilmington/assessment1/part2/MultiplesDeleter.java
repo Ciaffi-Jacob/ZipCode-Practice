@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.ArrayList;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -10,7 +12,7 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with evens removed
      */
     public Integer[] deleteEvens(Integer[] ints) {
-        return null;
+        return deleteEvenOdd(ints, 1, 2);
     }
 
     /**
@@ -19,7 +21,7 @@ public class MultiplesDeleter {
      * given an array of integers, named `ints` return an identical array with odds removed
      */
     public Integer[] deleteOdds(Integer[] ints) {
-        return null;
+        return deleteEvenOdd(ints, 0, 2);
     }
 
     /**
@@ -39,5 +41,16 @@ public class MultiplesDeleter {
      */
     public Integer[] deleteMultiplesOfN(Integer[] ints, int multiple) {
         return null;
+    }
+    public Integer[] deleteEvenOdd(Integer[] ints, int num, int mult){  //DRY
+        int count = 0;
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i < ints.length; i++) {
+            if(ints[i].intValue() % mult == num){
+                arrayList.add(ints[i]);
+                count += 1;
+            }
+        }
+        return arrayList.toArray(new Integer[count]);
     }
 }
